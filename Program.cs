@@ -14,18 +14,18 @@ string[] FillArray(string[] matr)
         elem = Console.ReadLine();
         matr[i] = elem;
     }
-    // Console.WriteLine($"Massive = [{string.Join(", ", matr)}]");
     return matr;
 }
 
 string[] PrintArray(string[] matr)
 {
+    const string quote = "\"";
     Console.Write("[");
     for (int i = 0; i < matr.Length - 1; i++)
     {
-        Console.Write($"{matr[i],4} ");
+        Console.Write($"{quote}{matr[i]}{quote}  ");
     }
-    Console.Write($"{matr[matr.Length - 1]}");
+    Console.Write($"{quote}{matr[matr.Length - 1]}{quote}");
     Console.Write("]");
     return matr;
 }
@@ -43,6 +43,21 @@ string[] CheckLenghtElement(string[] matr, string[] arr)
     return arr;
 }
 
+int CountSizeMassive(string[] matr)
+{
+    int count = 0;
+    for (int i = 0; i < matr.Length; i++)
+    {
+        if (matr[i].Length >= 3)
+        {
+            count++;
+        }
+    }
+    return count;
+}
+
+
+Console.WriteLine ("Welcome, dear user, to my program");
 int m = EnterData("Enter size massive");
 string[] array = new string[m];
 
@@ -50,7 +65,8 @@ FillArray(array);
 Console.WriteLine ("Massive:");
 PrintArray(array);
 
-string[] massive = new string[m];
+int n = CountSizeMassive(array);
+string[] massive = new string[n];
 
 CheckLenghtElement(array, massive);
 Console.WriteLine ();
