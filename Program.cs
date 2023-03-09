@@ -20,10 +20,13 @@ string[] FillArray(string[] matr)
 
 string[] PrintArray(string[] matr)
 {
-    for (int i = 0; i < matr.Length; i++)
+    Console.Write("[");
+    for (int i = 0; i < matr.Length - 1; i++)
     {
         Console.Write($"{matr[i],4} ");
     }
+    Console.Write($"{matr[matr.Length - 1]}");
+    Console.Write("]");
     return matr;
 }
 
